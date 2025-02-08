@@ -11,10 +11,10 @@ data = pd.read_csv('marks.csv')  # Ensure file exists in the same directory
 data.columns = data.columns.str.strip()  # Remove leading and trailing spaces
 
 # Email configuration
-smtp_server = "smtp.gmail.com"
-smtp_port = 587
-smtp_user = "npdevandla@gmail.com"  # Replace with your actual email
-smtp_pass = "zdqp jsda gxvj lbgn"  # Use environment variable for security
+smtp_server = os.getenv("SMPT_SERVER")
+smtp_port = os.getenv("SMPT_PORT")
+smtp_user = os.getenv("SMTP_USER")  # Replace with your actual email
+smtp_pass = os.getenv("SMPT_PASS")  # Use environment variable for security
 
 # Create the SMTP connection
 server = smtplib.SMTP(smtp_server, smtp_port)
